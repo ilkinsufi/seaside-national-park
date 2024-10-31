@@ -29,7 +29,7 @@ const List = () => {
         to="/"
         className="bg-white fixed flex items-center gap-3 top-[2%] px-[4%] py-[1%] rounded-[11px] left-[2%] z-[1] duration-200 hover:opacity-90"
       >
-        <LeftArrow /> <span className="text-2xl">Go Back</span>
+        <LeftArrow /> <span className="text-[1.7rem]">Go Back</span>
       </Link>
       <section className="flex items-start  justify-center">
         {/* first  */}
