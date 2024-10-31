@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StaticData } from "../pages/List";
+import { StaticData } from "../data/StaticData";
 
 const Modal = ({ modal, setModal, currentItem, setCurrentItem }: any) => {
   useEffect(() => {
