@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
 import { StaticData } from "../data/StaticData";
-
+import { Link } from "react-router-dom";
+import LeftArrow from "../assets/LeftArrow";
 
 const getRandomAspectRatio = () => {
   const ratios = [
@@ -22,7 +23,14 @@ const List = () => {
     setModal(true);
   }
   return (
-    <main data-aos="fade-in" className="bg-[#2C7983] flex flex-col">
+    <main data-aos="fade-in" className="bg-[#2C7983] relative  flex flex-col">
+      {/* back button */}
+      <Link
+        to="/"
+        className="bg-white fixed flex items-center gap-3 top-[2%] px-[4%] py-[1%] rounded-[11px] left-[2%] z-[1] duration-200 hover:opacity-90"
+      >
+        <LeftArrow /> <span className="text-2xl">Go Back</span>
+      </Link>
       <section className="flex items-start  justify-center">
         {/* first  */}
         <div className="grid w-1/3 ">
@@ -33,13 +41,20 @@ const List = () => {
                   handleClick(data.id);
                 }}
                 key={index}
-                className={`overflow-hidden ${getRandomAspectRatio()}`}
+                className={`overflow-hidden relative ${getRandomAspectRatio()}`}
               >
                 <img
                   src={data.newImg}
                   alt={data.title}
                   className="w-full h-full object-cover"
                 />
+                <div
+                  className={`${
+                    data.darkYearColor ? "text-black" : "text-white"
+                  } absolute left-[5%] bottom-[5%] text-[32px] font-medium`}
+                >
+                  {data.newYear}
+                </div>
               </div>
             )
           )}
@@ -53,13 +68,20 @@ const List = () => {
                   handleClick(data.id);
                 }}
                 key={index}
-                className={`overflow-hidden ${getRandomAspectRatio()}`}
+                className={`overflow-hidden relative ${getRandomAspectRatio()}`}
               >
                 <img
                   src={data.newImg}
                   alt={data.title}
                   className="w-full h-full object-cover"
                 />
+                <div
+                  className={`${
+                    data.darkYearColor ? "text-black" : "text-white"
+                  } absolute left-[5%] bottom-[5%] text-[32px] font-medium`}
+                >
+                  {data.newYear}
+                </div>
               </div>
             )
           )}
@@ -73,13 +95,20 @@ const List = () => {
                   handleClick(data.id);
                 }}
                 key={index}
-                className={`overflow-hidden ${getRandomAspectRatio()}`}
+                className={`overflow-hidden relative ${getRandomAspectRatio()}`}
               >
                 <img
                   src={data.newImg}
                   alt={data.title}
                   className="w-full h-full object-cover"
                 />
+                <div
+                  className={`${
+                    data.darkYearColor ? "text-black" : "text-white"
+                  } absolute left-[5%] bottom-[5%] text-[32px] font-medium`}
+                >
+                  {data.newYear}
+                </div>
               </div>
             )
           )}

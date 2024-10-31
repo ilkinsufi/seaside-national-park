@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { StaticData } from "../data/StaticData";
+import ReactCompareImage from "react-compare-image";
 
 const Modal = ({ modal, setModal, currentItem, setCurrentItem }: any) => {
+  const [sliderPositionPercentage, setSliderPositionPercentage] = useState(0.5);
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = "hidden";
     } else {
+      setSliderPositionPercentage(0.5);
       setCurrentItem(0);
       document.body.style.overflow = "auto";
     }
@@ -14,13 +17,12 @@ const Modal = ({ modal, setModal, currentItem, setCurrentItem }: any) => {
   const filteredItem = StaticData.filter(
     (selectedItem) => selectedItem.id === currentItem
   );
-  console.log(filteredItem[0]);
 
   return (
     <main
-      onClick={() => setModal(!modal)}
+      // onClick={() => setModal(!modal)}
       className={`${
-        modal ? "opacity-100 visible" : "opacity-0 invisible"
+        modal ? "opacity-100 visible z-[2]" : "opacity-0 invisible"
       } fixed duration-0 flex select-none items-center justify-center w-full h-full left-0 top-0 bg-[black]/80`}
     >
       <div
@@ -58,17 +60,20 @@ const Modal = ({ modal, setModal, currentItem, setCurrentItem }: any) => {
           </span>
         </div>
         <div className="bg-[khaki]/0 relative h-[77%] w-[90%]">
-          <img
-            src={filteredItem[0]?.newImg}
-            alt="item"
-            className="w-full h-full object-cover"
-          />
+          {/* buraya  */}
 
-          <div
-            onDrag={(e) => e.stopPropagation()}
-            className="absolute left-0 h-full top-0"
-          >
-            <img src="/drag.png" className="h-full" alt="" />
+          <div className="contentWrapper overflow-hidden flex items-center justify-center  bg-red-500">
+            <ReactCompareImage
+              key={filteredItem[0]?.id}
+              aspectRatio="wider"
+              handleSize={50}
+              rightImageCss={{}}
+              sliderLineColor="#3394a0"
+              sliderLineWidth={5}
+              sliderPositionPercentage={sliderPositionPercentage}
+              leftImage={filteredItem[0]?.oldImg}
+              rightImage={filteredItem[0]?.newImg}
+            />
           </div>
         </div>
       </div>
