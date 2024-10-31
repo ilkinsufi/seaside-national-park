@@ -62,7 +62,7 @@ const Modal = ({ modal, setModal, currentItem, setCurrentItem }: any) => {
         <div className="bg-[khaki]/0 relative h-[77%] w-[90%]">
           {/* buraya  */}
 
-          <div className="contentWrapper overflow-hidden flex items-center justify-center  bg-red-500">
+          <div className="contentWrapper overflow-hidden flex items-center justify-center  bg-red-500/0">
             <ReactCompareImage
               key={filteredItem[0]?.id}
               aspectRatio="wider"
